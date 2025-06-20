@@ -1,0 +1,81 @@
+Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/NeverHurts/Inari-Leak/refs/heads/main/Library'))() -- CREATE LIB
+
+local Window = Library:Window({ 
+    Name = "inari | " .. os.date("%b %d %Y"),
+    FadeSpeed = 0.21,
+    Icon = nil,
+    Size = UDim2.new(0, 622, 0, 453),
+});
+local Watermark = Window:Watermark("inari | " .. os.date("%b %d %Y"));
+local KeybindList = Window:KeybindList();
+
+local Pages = {
+    ["Combat"] = Window:Page({
+        Name = "Combat", 
+        Columns = 2,
+        SubPages = false
+    });
+
+    ["Visuals"] = Window:Page({
+        Name = "Visuals", 
+        Columns = 2,
+        SubPages = false 
+    });
+
+    ["Players"] = Window:Page({ 
+        Name = "Players", 
+        Columns = 2,
+        SubPages = false 
+    });
+};
+local Misc = Window:Page({
+    Name = "Misc", 
+    Columns = 1
+});
+
+local MovementSection = Misc:Section({
+    Name = "Movement", 
+    Side = 1 -- 1 for left - 2 for right
+});
+Pages["Settings"] = Window:Page({ 
+    Name = "Settings", 
+    Columns = 2,
+    SubPages = false 
+});
+  local AimbotSection = Pages["Combat"]:Section({
+        Name = "Aimbot", 
+        Side = 1
+    });
+    local GunModsSection = Pages["Combat"]:Section({
+        Name = "gun mods", 
+        Side = 2
+    });
+    AimbotSection:Toggle({
+            Name = "Enable AImbot",
+            Flag = "Toggle1231",
+            Default = false,
+            Callback = function(Value)
+                print(Value)
+            end;
+        })
+        
+        AimbotSection:Slider({
+            Name = "fov Circle size",
+            Flag = "SIGMASLIDER",
+            Min = 0,
+            Max = 500,
+            Default = 50,
+            Suffix = "px",
+            Callback = function(Value)
+                print(Value)
+            end;
+        })
+        AimbotSection:Button({
+        Name = "ULTIMATE TROLLER GUI 2025",
+        Callback = function()
+            print('hi')
+        end
+    })
+    AimbotSection:Textbox({Name = "Config Name", Default = "", Flag = "ConfigName", Placeholder = "Name ...", Callback = function(Value)
+        ConfigName = Value;
+    end});
